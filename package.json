@@ -1,0 +1,24 @@
+{
+  "name": "anikin",
+  "version": "1.0.0",
+  "description": "laba nodejs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "serve": "nodemon index.js",
+    "starts": "node index.js"
+  },
+  "keywords": [
+    "laba",
+    "nodejs"
+  ],
+  "author": "Anikin Aleksandr <as79020947761@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}

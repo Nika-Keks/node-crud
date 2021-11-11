@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('./partials/head'); %>
+</head>
+<body>
+    <%- include('./partials/navbar'); %>
+    <div class="container">
+        <h1>Students List</h1>
+
+        <div id="app">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Patronymic</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Action</th>
+                    </tr>
+                <tbody>
+                    <tr>
+                        <th>
+                            <input class="form-control" type="text" v-model="name">
+                        </th>
+                        <th>
+                            <input class="form-control" type="text" v-model="patronymic">
+                        </th>
+                        <th>
+                            <input class="form-control" type="text" v-model="surname">
+                        </th>
+                        <th>
+                            <form @submit.prevent="addStudent">
+                                <button type="submit" class="btn btn-outline-secondary">Submit</button>
+                            </form>
+                        </th>
+                    </tr>
+                    <div class="spinner-border" role="status" v-if="servers.length === 0">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div v-else>
+                        <tr v-for="record in servers">
+                            <th>
+                                {{ record.name }}
+                            </th>
+                            <th>
+                                {{ record.patronymic }}
+                            </th>
+                            <th>
+                                {{ record.surname }}
+                            </th>
+                            <th>
+                                <button class="btn btn-outline-secondary" type="button" @click="remove(record.id)">Delete</button>
+                            </th>
+                        </div>
+                    </tr>
+                </tbody>
+        
+            </table>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
